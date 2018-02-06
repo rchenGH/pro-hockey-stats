@@ -1,0 +1,28 @@
+.navbar{
+  background: linear-gradient(rgba(200, 60, 30, 0.9), rgba(200, 80, 30, 0));
+  padding-top: 40px;
+  z-index:0;
+
+}
+
+#root > div > div > nav > div > ul > li > a{
+  color: rgba(255, 132, 59, 1) ;
+}
+
+.navbar{
+
+}
+
+
+@media only screen and (max-width: 768px) {
+
+
+  .navbar{
+    background: rgba(59,59,59,1);
+    z-index:0;
+    border-bottom: rgba(255, 132, 59, 1) ;
+    border-width: thin;
+    border-style: solid;
+    text-align: center;
+  }
+}
