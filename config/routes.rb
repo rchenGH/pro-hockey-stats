@@ -3,4 +3,13 @@ Rails.application.routes.draw do
 
    get('/', { to: 'welcome#index', as: :home })
 
+   namespace :api, defaults: {format: :json} do
+     namespace :v1 do
+       resources :players
+       resources :tokens
+     end
+
+   end
+
+
 end
