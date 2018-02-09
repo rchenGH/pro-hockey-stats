@@ -32,7 +32,7 @@ class App extends Component{
     this.signOut = this.signOut.bind(this);
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.signIn()
   }
 
@@ -51,29 +51,30 @@ class App extends Component{
   }
 
   isSignedIn(){
+    console.log(!!this.state.user.id);
     return !!this.state.user.id
   }
 
-  renderNavBar(){
-    return(
-      <nav>
-        <h3>Player Central</h3>
-        <Link to="/">Home</Link>
-        <Link to="/players">Players</Link>
-        {this.isSignedIn()
-          ? <span><span>Hello, {this.state.user.first_name}</span><button className="signout" onClick={this.signOut}>Sign Out</button></span>
-          : <Link to="/sign_in">Sign In</Link>
-        }
-      </nav>
-    );
-  }
+  // renderNavBar(){
+  //   return(
+  //     <nav>
+  //       <h3>Player Central</h3>
+  //       <Link to="/">Home</Link>
+  //       <Link to="/players">Players</Link>
+  //       {this.isSignedIn()
+  //         ? <span><span>Hello, {this.state.user.first_name}</span><button className="signout" onClick={this.signOut}>Sign Out</button></span>
+  //         : <Link to="/sign_in">Sign In</Link>
+  //       }
+  //     </nav>
+  //   );
+  // }
 
 
   render(){
     return(
       <Router>
         <div className="App">
-          <Navigation/>
+          <Navigation user={this.state.user} isSignedIn={this.isSignedIn()}/>
           <HockeyBackground/>
 
             <Switch>
