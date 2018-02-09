@@ -1,7 +1,8 @@
 class Api::V1::PlayersController < Api::ApplicationController
   before_action :authenticate_api_user
+
   def index
-    @players = Player.order(created_at: :desc).limit(10)
+    @players = Player.order(created_at: :desc).limit(50)
     render json: @players
   end
 
@@ -40,7 +41,7 @@ class Api::V1::PlayersController < Api::ApplicationController
   private
 
   def player_params
-    params.require(:player).permit(:first_name, :last_name, :season, :age, :team, :gp, :g, :a, :pts)
+    params.require(:player).permit(:first_name, :last_name)
   end
 
   def authorize_user!

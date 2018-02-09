@@ -33,14 +33,16 @@ User.destroy_all
 Season.delete_all
 Player.delete_all
 
-PASSWORD = "asdf"
-
 user = User.create(
-  first_name: "Raymond",
-  last_name: "Chen",
-  email: "raymond@gmail.com",
-  password: PASSWORD
+   first_name: 'Raymond',
+   last_name: 'Chen',
+   email: 'raymond@gmail.com',
+   password: '1234',
+   api_key: "7cfca90c1baa41f756b1eab860179e510019c506814d4a913940e908680bc03b8ef2e92c3a101d0bcd18b25e675dd611505fb57d7b7afae844b52c7ac72ab95f"
 )
+
+
+puts "Login email:#{user.email} and Password: #{user.password}"
 
 
 PLAYERS = [
@@ -74,10 +76,12 @@ PLAYERS.each do |player_meta|
   player = Player.create(player_attrs)
   p "Seeding player: #{player_meta[:first_name]} #{player_meta[:last_name]}"
 
+
   scraper.data.each do |season|
     next if season.empty?
     season_attrs = obj_attrs(season, [:league])
     player.seasons.create(season_attrs)
+    p season
   end
 end
 
