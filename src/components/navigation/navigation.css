@@ -1,18 +1,24 @@
 .navbar{
-  background: linear-gradient(rgba(200, 60, 30, 0.9), rgba(200, 80, 30, 0));
-  padding-top: 40px;
+  background: linear-gradient(rgba(200, 60, 30, 0.5), rgba(200, 80, 30, 0));
+  padding-top: 20px;
   z-index:0;
+}
 
+.nav-link{
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.nav-link:hover{
+  font-size: 14px;
+  font-weight:normal;
+  color: rgba(200, 80, 30, 1);
+  transition: 200ms;
 }
 
 #root > div > div > nav > div > ul > li > a{
-  color: rgba(255, 132, 59, 1) ;
+  color:rgba(255, 132, 59, 0.7) ;
 }
-
-.navbar{
-
-}
-
 
 @media only screen and (max-width: 768px) {
 

@@ -1,5 +1,5 @@
 .hockey-background-div{
-background-image: url("./Background.jpg");
-height: 80vh;
-background-size: cover;
+  background-image: url("./Background.jpg");
+  height: 80vh;
+  background-size: cover;
 }

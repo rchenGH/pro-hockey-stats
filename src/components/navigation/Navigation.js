@@ -33,6 +33,11 @@ class Navigation extends Component{
 
     });
   }
+
+
+
+
+
   render() {
     return (
       <div className="nav-div">
@@ -43,7 +48,7 @@ class Navigation extends Component{
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="nav-list-item">
-                <NavLink href="/components/">PLAYERS</NavLink>
+                <NavLink href="/players" className="nav-link">PLAYERS</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
