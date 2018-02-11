@@ -3,20 +3,16 @@ import PlayerSummary from '../PlayerSummary/PlayerSummary'
 
 
 function PlayersList(props){
-  const {
-    players = []
-  } = props;
-
+  const { players = [] } = props;
   return (
-    <div className='PlayersList'>
+    <div className='PlayerList row'>
+
       {
-        players.map(player =>(
-          <PlayerSummary key={player.id}{...player}/>
+      players.map(player => (
+          <PlayerSummary key={player.id} {...player}/>
         ))
       }
-
     </div>
-
   );
 }
 

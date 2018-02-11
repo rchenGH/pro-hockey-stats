@@ -26,7 +26,7 @@ class App extends Component{
     super(props);
 
     this.state={
-      user: {}
+      user: null
     }
     this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
@@ -45,39 +45,28 @@ class App extends Component{
     }
   }
 
+  isSignedIn(){
+    return !!this.state.user
+  }
+
   signOut(){
     localStorage.clear()
-    this.setState({user:{}})
+    this.setState({
+      user: null
+    })
   }
 
-  isSignedIn(){
-    console.log(!!this.state.user.id);
-    return !!this.state.user.id
-  }
-
-  // renderNavBar(){
-  //   return(
-  //     <nav>
-  //       <h3>Player Central</h3>
-  //       <Link to="/">Home</Link>
-  //       <Link to="/players">Players</Link>
-  //       {this.isSignedIn()
-  //         ? <span><span>Hello, {this.state.user.first_name}</span><button className="signout" onClick={this.signOut}>Sign Out</button></span>
-  //         : <Link to="/sign_in">Sign In</Link>
-  //       }
-  //     </nav>
-  //   );
-  // }
 
 
   render(){
     return(
       <Router>
-        <div className="App">
-          <Navigation user={this.state.user} isSignedIn={this.isSignedIn()}/>
-          <HockeyBackground/>
+        <div className="App" style={{backgroundColor: "rgba(59,59,59,1)", paddingTop:'5px', marginTop:'-50px', width: '100vw'}}>
+          <Navigation user={this.state.user} onSignOut={this.signOut} isSignedIn={this.isSignedIn()}/>
+
 
             <Switch>
+
               <AuthRoute
                 isAuthenticated={this.isSignedIn()}
                 path='/players/:id'
@@ -85,10 +74,13 @@ class App extends Component{
               <AuthRoute
                 isAuthenticated={this.isSignedIn()}
                 path='/players'
-                component={PlayersIndexPage}/>
+                component={PlayersIndexPage}
+              />
               <Route
                 path="/sign_in"
-                render={props => <SignInPage{...props} onSignIn={this.signIn}/>}/>
+                render={props => <SignInPage{...props} onSignIn={this.signIn}/>}
+                component={SignInPage}
+              />
             </Switch>
 
         </div>

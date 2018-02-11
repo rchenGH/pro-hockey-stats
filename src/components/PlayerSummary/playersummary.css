@@ -1,0 +1,203 @@
+.PlayerSummary{
+  max-width: 350px;
+  min-width: 350px;
+  max-height: 450px;
+  min-height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.card{
+  border: none;
+  height: 450px;
+  border-style: solid;
+  border-color: rgba(240, 119, 53, 1);
+  border-width: thick;
+  border-radius: 0px;
+  z-index: -1;
+  background-color: rgba(255,180,80,1);
+  transition: 500ms;
+}
+
+
+.vector{
+  z-index:2;
+  padding-bottom: 40px;
+}
+
+.top-card-div{
+  background: linear-gradient(-25deg, rgba(59,254,255,0.8), rgba(200,200,200,0.5), rgba(200, 200, 200, 1)), rgba(255, 95, 0, 1);
+
+}
+
+.name-div {
+  -webKit-transform: skewY(-18deg);
+  margin-top: auto;
+  margin-bottom: 62px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  background: linear-gradient(-10deg, rgba(255,180,80,1), rgba(200, 200, 200, 1));
+  border-top-color: rgba(240, 119, 53, 1);
+  border-top-style: solid;
+  border-top-width: thick;
+  border-bottom-color: rgba(200,200,200,1);
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  z-index: 3;
+}
+
+.bottom-card-div{
+  background: rgba(0,0,0,1);
+  height:170px;
+  margin-top: -130px;
+}
+
+.first-name{
+  text-align: right;
+  font-weight: bold;
+  color: rgba(50,50,50,1)
+}
+
+.last-name{
+  font-size: 50px;
+  color: rgba(50,50,50,1);
+  text-align: right;
+  font-weight: bolder
+}
+
+.diagonal-name-div{
+  height: 600px;
+}
+
+.vector{
+  height: 350px;
+  margin-bottom: -100px;
+  margin-right: 20px;
+  width: auto;
+}
+
+
+.back-full-name{
+  -webKit-transform: skewX(-20deg);
+  padding-top: 70px;
+  margin-top:auto;
+  margin-bottom: auto;
+  height: 200px;
+  color: rgba(200,200,200,1);
+  padding-left: 20px;
+  padding-right: 10px;
+  font-size: 20px;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 1);
+;}
+
+
+
+.portrait{
+  background-image: url("./hockey-silhouette.png");
+  width: 150px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 1);
+  border-radius: 50%;
+  margin-top: 35px;
+  margin-bottom: 10px;
+
+  height: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.thecard .theback{
+  background-color:rgba(255,200,120,1);
+}
+
+.top-back{
+  background-color: rgba(255,200,120,1)
+}
+
+.bottom-back{
+  background-color: rgba(255,200,120,1);
+  height: 100%;120
+  border-right-color: rgba(0,0,0,1);
+  border-bottom-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-top-color: rgba(0, 0, 0, 1);
+  border-top-right-radius: 20%;
+  border-top-width: 5px;
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 10px;
+  border-style: solid;
+}
+
+/* *********************************************** */
+
+
+/* THE CARD HOLDS THE FRONT AND BACK FACES */
+.thecard{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+  transform-style: preserve-3d;
+  transition: all 1.5s ease;
+}
+
+/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+.thecard:hover{
+  transform: rotateY(180deg);
+
+}
+
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+ .thefront{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  color: #000;
+}
+
+/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+.theback{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background: #fafafa;
+  color: #333;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
+
+/*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+.thefront h1, .theback h1{
+  font-family: 'zilla slab', sans-serif;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+.thefront p, .theback p{
+  font-family: 'zilla slab', sans-serif;
+  padding: 30px;
+  font-weight: normal;
+  font-size: 12px;
+  text-align: center;
+}

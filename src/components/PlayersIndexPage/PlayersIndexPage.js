@@ -1,27 +1,32 @@
 import React, {Component} from 'react';
 import {Player} from '../../lib/requests'
 import PlayersList from '../PlayersList/PlayersList';
-
+import playerindexstyle from './playerindex.css'
 
 class PlayersIndexPage extends Component{
   constructor(props){
     super(props);
 
     this.state = {
-      players:[]
+      players: [],
+      seasons: []
     };
   }
 
   componentDidMount(){
    Player
     .getAll()
-    .then(data => {this.setState({players:data})})
+
+    .then(data =>{this.setState({players:data})})
   }
+
+
 
   render(){
       return (
-        <div className="PlayersIndexPage">
+        <div className="PlayersIndexPage container">
           <PlayersList players={this.state.players} />
+
         </div>
       )
     }

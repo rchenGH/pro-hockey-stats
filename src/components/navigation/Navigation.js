@@ -17,6 +17,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem } from 'reactstrap';
+
 import SignInPage from '../SignIn/SignInPage'
 
 
@@ -29,14 +30,15 @@ class Navigation extends Component{
       user: {}
     }
 
+    // this.signOut = this.signOut.bind(this);
     this.toggle = this.toggle.bind(this);
 
     this.state = {
       isOpen: false
     };
 
-    this.signIn = this.signIn.bind(this);
-    this.signOut = this.signOut.bind(this);
+
+    // this.signOut = this.signOut.bind(this);
   }
   toggle() {
     this.setState({
@@ -45,20 +47,11 @@ class Navigation extends Component{
     });
   }
 
-  componentDidMount(){
-  }
 
-
-  signIn(){
-
-  }
-
-  signOut(){
-
-  }
 
 
   render() {
+    const { user , onSignOut = () => {}} = this.props;
     return (
       <div className="nav-div">
         <Navbar light expand="md" fixed="top">
@@ -72,8 +65,9 @@ class Navigation extends Component{
               <NavItem className="nav-list-item">
                 <NavLink href="/players" className="nav-link">PLAYERS</NavLink>
               </NavItem>
-              {this.props.isSignedIn
-                ? <span><span>Hello, {this.props.user.first_name}</span><button className="signout" onClick={this.signOut}>Sign Out</button></span>
+              { user
+                ? <span><span>Hello, {this.props.user.first_name}</span>
+                  <button className="signout" onClick={onSignOut}>SIGN OUT</button></span>
                 : <NavLink to="/sign_in">SIGN IN</NavLink>
               }
             </Nav>
