@@ -21,7 +21,7 @@ class SignInPage extends Component {
         localStorage.setItem('jwt', jwt);
 
         onSignIn();
-        this.props.history.push("/");
+        this.props.history.push("/players");
       }
     })
 }

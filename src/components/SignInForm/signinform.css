@@ -5,6 +5,7 @@
   min-width: 300px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: -70vh;
 }
 
 .sign-in-form{
@@ -27,7 +28,7 @@ hr{
 
 input[type="text"], input[type="password"]{
   background-color: rgba(200, 80, 30, 0.5);
-  color: rgba(255, 255, 255, 1);
+  color: rgba(200, 200, 200, 1);
   border-radius: 0;
   border-color: rgba(0,0,0,0);
 }
@@ -39,7 +40,7 @@ input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-i
 
 input[type='text']:focus, input[type='password']:focus{
   background-color: rgba(200, 80, 30, 0.2);
-  color: rgba(255, 255, 255, 1);
+  color: rgba(240, 100, 100, 1);
   border-width:normal;
   border-spacing: 10px;
   border-color: rgba(255,255,255,0.5);

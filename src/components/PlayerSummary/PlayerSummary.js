@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import { Card, Button, CardHeader, CardFooter, CardBody,
   CardTitle, CardText } from 'reactstrap';
 
+  import { Table } from 'reactstrap';
+
 
 import summarystyle from './playersummary.css'
 import hockeyback from './hockey-vector.png'
@@ -10,7 +12,9 @@ import hockeyfront from './hockey-silhouette.png'
 
 
 const PlayerSummary = (props) => {
-  const {id, first_name, last_name} = props
+  const {id, first_name, last_name, players =[], seasons=[]} = props
+
+  console.log(seasons[0].age)
 
   return (
     <div className="PlayerSummary maincontainer col-sm-12 col-md-6 col-lg-4">
@@ -50,7 +54,27 @@ const PlayerSummary = (props) => {
 
           </div>
           <div className="container bottom-back">
-          </div>
+            <br></br>
+            <br></br>
+            <Table bordered>
+              <thead>
+                <tr style={{width:"100px"}}>
+                  <th className="table-head" id='season-head'>SEASON</th>
+
+                  <th className='table-head goals-head'>G</th>
+                  <th className="table-head assists-head">A</th>
+                  <th className="table-head points-head">PTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <td className="table-data">{seasons[0].season}</td>
+
+                <td className="table-data">{seasons[0].g}</td>
+                <td className="table-data">{seasons[0].a}</td>
+                <td className="table-data">{seasons[0].pts}</td>
+              </tbody>
+            </Table>
+        </div>
         </Card>
         </Link>
 

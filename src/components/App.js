@@ -4,6 +4,8 @@ import HockeyLogo from './logo/Logo'
 import HockeyBackground from './background/Background'
 import { Container, Row, Col } from 'reactstrap';
 import ReactDOM from 'react-dom';
+import Footer from './footer/Footer'
+import HomePage from './home/HomePage'
 
 import {
   BrowserRouter as Router,
@@ -61,12 +63,11 @@ class App extends Component{
   render(){
     return(
       <Router>
-        <div className="App" style={{backgroundColor: "rgba(59,59,59,1)", paddingTop:'5px', marginTop:'-50px', width: '100vw'}}>
+        <div className="App"
+          style={{backgroundColor: "rgba(59,59,59,1)", paddingTop:'5px', width: '100vw', paddingBottom:'50px'}}
+          >
           <Navigation user={this.state.user} onSignOut={this.signOut} isSignedIn={this.isSignedIn()}/>
-
-
             <Switch>
-
               <AuthRoute
                 isAuthenticated={this.isSignedIn()}
                 path='/players/:id'
@@ -76,13 +77,19 @@ class App extends Component{
                 path='/players'
                 component={PlayersIndexPage}
               />
+              <AuthRoute
+                isAuthenticated={this.isSignedIn()}
+                path='/home'
+                component={HomePage}
+              />
+
               <Route
                 path="/sign_in"
                 render={props => <SignInPage{...props} onSignIn={this.signIn}/>}
                 component={SignInPage}
               />
             </Switch>
-
+            <Footer></Footer>
         </div>
       </Router>
     )

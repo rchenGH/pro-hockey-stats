@@ -13,6 +13,7 @@ class PlayersIndexPage extends Component{
     };
   }
 
+
   componentDidMount(){
    Player
     .getAll()
@@ -22,10 +23,14 @@ class PlayersIndexPage extends Component{
 
 
 
+
   render(){
+
+    
+
       return (
         <div className="PlayersIndexPage container">
-          <PlayersList players={this.state.players} />
+          <PlayersList players={this.state.players} seasons={this.state.seasons}/>
 
         </div>
       )

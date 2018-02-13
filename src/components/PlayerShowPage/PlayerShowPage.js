@@ -18,15 +18,8 @@ class PlayerShowPage extends Component{
     // console.log(player.seasons[0].age)
   }
 
-
-
-
   render(){
-
-
-
     return (
-
       <div className="PlayerShowPage">
         <PlayerDetails {...this.state.player} />
       </div>

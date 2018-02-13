@@ -11,54 +11,54 @@ function PlayerDetails(props){
   } = props;
 
 
-  let total_shots = 0
-  let total_goals = 0
-  let total_assists = 0
-  let total_games = 0
-  let current_age = 0
-  let points_per_82_projection = 0
+  let totalShots = 0
+  let totalGoals = 0
+  let totalAssists = 0
+  let totalGames = 0
+  let currentAge = 0
+  let pointsPer82Projection = 0
 
   for(let i=0; i<seasons.length; i++){
-    total_shots += (seasons[i].s)
+    totalShots += (seasons[i].s)
   }
 
   for(let i=0; i<seasons.length; i++){
-    total_goals += (seasons[i].g)
+    totalGoals += (seasons[i].g)
   }
 
   for(let i=0; i<seasons.length; i++){
-    total_assists += (seasons[i].a)
+    totalAssists += (seasons[i].a)
   }
 
   for(let i=0; i<seasons.length; i++){
-    total_games += (seasons[i].gp)
+    totalGames += (seasons[i].gp)
   }
 
   for(let i=0; i<seasons.length; i++){
-    current_age = seasons[i].age
+    currentAge = seasons[i].age
   }
 
-  let average_shot_percentage = total_goals/total_shots;
-  let average_shots_per_season = total_shots/total_games;
-  let average_assists_per_game = total_assists/total_games;
+  let averageShotPercentage = totalGoals/totalShots;
+  let averageShotsPerSeason = totalShots/totalGames;
+  let averageAssistsPerGame = totalAssists/totalGames;
 
-  let assists_per_82 = average_assists_per_game * 82
-  let shots_per_82 = average_shots_per_season * 82
-  let goals_per_82 = shots_per_82 * average_shot_percentage
+  let assistsPer82 = averageAssistsPerGame * 82
+  let shotsPer82 = averageShotsPerSeason * 82
+  let goalsPer82 = shotsPer82 * averageShotPercentage
 
-  let points_per_82 = (goals_per_82 + assists_per_82)
+  let pointsPer82 = (goalsPer82 + assistsPer82)
 
-  let avg_shot_percentage = average_shot_percentage*100
+  let avgShotPercentage = averageShotPercentage*100
 
 
-  if(current_age < 29){
-    points_per_82_projection = points_per_82 * 1.05
-  } else if ( current_age === 30) {
-    let points_per_82_projection = points_per_82
-  } else if (current_age > 31 && current_age <34){
-   points_per_82_projection =  points_per_82 * 0.97
+  if(currentAge < 29){
+    pointsPer82Projection = pointsPer82 * 1.05
+  } else if ( currentAge === 30) {
+    let pointsPer82Projection = pointsPer82
+  } else if (currentAge > 31 && currentAge <34){
+   pointsPer82Projection =  pointsPer82 * 0.97
  } else {
-   points_per_82_projection =  points_per_82 * 0.95
+   pointsPer82Projection =  pointsPer82 * 0.95
  }
 
  let team_name = ""
@@ -100,7 +100,7 @@ function PlayerDetails(props){
       <tbody className="SeasonsList">
 
         {
-          seasons.map(season =>
+          seasons.reverse().map(season =>
             <tr key={season.id}>
                 <td id="season">{season.season}</td>
                 <td>{season.team}</td>
@@ -122,7 +122,13 @@ function PlayerDetails(props){
               </tr>)
         }
       </tbody>
+
+
     </Table>
+
+    <br></br>
+    <hr></hr>
+    <br></br>
 
     <div className="projections">
       <p className="note">*NOTE THAT THESE PROJECTIONS ARE CALCULATED BASED ON AN 82 GAME SEASON*</p>
@@ -143,17 +149,21 @@ function PlayerDetails(props){
         <tbody className="ProjectionsList">
           <tr>
             <td>2018-19</td>
-            <td className="goalsper82">{goals_per_82.toFixed(2)}</td>
-            <td className="assistsper82">{assists_per_82.toFixed(2)}</td>
-            <td className='pointsper82'>{points_per_82.toFixed(2)}</td>
-            <td>{shots_per_82.toFixed(2)}</td>
-            <td>{avg_shot_percentage.toFixed(2)}</td>
+            <td className="goalsper82">{goalsPer82.toFixed(2)}</td>
+            <td className="assistsper82">{assistsPer82.toFixed(2)}</td>
+            <td className='pointsper82'>{pointsPer82.toFixed(2)}</td>
+            <td>{shotsPer82.toFixed(2)}</td>
+            <td>{avgShotPercentage.toFixed(2)}</td>
           </tr>
         </tbody>
       </Table>
     </div>
 
-    <Chart seasons= {props.seasons} points_per_82={props.points_per_82}/>
+    <br></br>
+    <hr></hr>
+    <br></br>
+
+    <Chart seasons= {props.seasons} pointsPer82={props.pointsPer82}/>
 
     </div>
   );

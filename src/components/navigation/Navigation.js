@@ -60,15 +60,15 @@ class Navigation extends Component{
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="nav-list-item">
-                <NavLink href="/" className="nav-link">HOME</NavLink>
+                <NavLink href="/home" className="nav-link">HOME</NavLink>
               </NavItem>
               <NavItem className="nav-list-item">
                 <NavLink href="/players" className="nav-link">PLAYERS</NavLink>
               </NavItem>
               { user
-                ? <span><span>Hello, {this.props.user.first_name}</span>
+                ? <span className="wrap"><span className='greeting'>Hello, {this.props.user.first_name}</span>
                   <button className="signout" onClick={onSignOut}>SIGN OUT</button></span>
-                : <NavLink to="/sign_in">SIGN IN</NavLink>
+                : <NavLink to="/sign_in" className='signin'>SIGN IN</NavLink>
               }
             </Nav>
           </Collapse>
