@@ -1,3 +1,57 @@
 .home{
-  background-color: rgba(59,59,59,1)
+  background-color: rgba(59,59,59,1);
+  height: 100vh;
+  margin-top: -100vh;
+  width: 100vw;
+  /* padding-bottom: 10vh */
+}
+
+
+/* .top-10-container{
+  padding-top: 5vh;
+} */
+
+#top-10-card{
+  border-style: solid;
+  border-color: rgba(0,0,0,0);
+  text-align:center;
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.top-10-header-div{
+  margin-top: 20vh;
+  text-align: center;
+  height: 7vh;
+  color: rgba(200, 80, 30, 1)
+}
+
+.top-10-header{
+  color: rgba(200, 80, 30, 1);
+  font-size: 40px;
+
+}
+
+.top-10-row{
+  padding-top: 100vh;
+}
+
+.top-10-name, .top-10-points{
+  color: rgba(255,255,255,1);
+  font-weight: lighter;
+  font-size: 30px;
+  padding-top: 10px;
+}
+
+
+
+#top-10-card{
+  height: 110px;
+  margin-top: 3vh;
+}
+
+#top-10-card:last-child{
+  margin-bottom: 10vh;
 }

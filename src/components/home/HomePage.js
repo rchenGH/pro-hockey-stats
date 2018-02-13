@@ -2,17 +2,11 @@ import React, {Component} from 'react';
 import homepagestyle from './homepage.css'
 import HockeyBackground from '../background/Background'
 import {Player} from '../../lib/requests'
-
+import { Card, Button, CardTitle, CardText } from 'reactstrap';
 
 class HomePage extends Component {
-
-
-
   constructor(props){
     super(props);
-
-
-
     this.state = {
       players: [],
       seasons: []
@@ -25,9 +19,6 @@ class HomePage extends Component {
 
     .then(data =>{this.setState({players:data})})
   }
-
-
-
   render(){
 
     // let idPointsArr = [[],[]]
@@ -38,9 +29,7 @@ class HomePage extends Component {
       'last_name':[]
     }
 
-
-
-    // to get the top points
+    // top 10 list
     for(let i=0; i<this.state.players.length; i++){
       idPointObj['first_name'].push(this.state.players[i].first_name)
       idPointObj['last_name'].push(this.state.players[i].last_name)
@@ -51,37 +40,58 @@ class HomePage extends Component {
       idPointObj['points'].push(this.state.players[i].seasons[0].pts)
     }
 
-
     let idPointsWithIndex = [];
     for (let i in idPointObj.points){
-      idPointsWithIndex.push([idPointObj.points[i],i])
+      idPointsWithIndex.push([idPointObj.points[i], idPointObj.first_name[i], idPointObj.last_name[i], idPointObj.id[i] ,i])
     }
 
-    let indexOrder = (idPointsWithIndex.sort().reverse())
+    let sortedStats = (idPointsWithIndex.sort().reverse())
 
-    let arrayOrder = []
+    let sortedFirst = []
+    let sortedLast = []
 
-    for(let i=0; i<indexOrder.length; i++){
-      arrayOrder.push(parseInt(indexOrder[i][1]))
+    for(let i =0; i<sortedStats.length-40; i++){
+       sortedFirst.push(sortedStats[i][1]);
+       sortedLast.push(sortedStats[i][2]);
     }
 
-    console.log(arrayOrder)
+    let limitedStats = []
 
+    for(let i=0; i<sortedStats.length-40; i++){
+      limitedStats.push(sortedStats[i])
+    }
 
 
 
     return(
-      <div>
-      <HockeyBackground/>
-      <div className='home row'>
+      <div className='container-fluid top-10-container'>
+      <div className='home row top-10-row'>
+        <div className='col-md-12'>
+          <div className="top-10-header-div">
+            <p className="top-10-header">TOP 10 CURRENT PLAYERS</p>
+          </div>
 
-        {
-        this.state.players.map(player => (
-            <div key={player.id} {...player}>
+          {limitedStats.map(function(limited, i){
+              return(
+              <Card body obj={limited} key={i} id='top-10-card' id="top-10-card">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <CardTitle className="top-10-name">{limited[1]} {limited[2]}</CardTitle>
+                    </div>
+                    <div className="col-md-6">
+                      <CardTitle className="top-10-points">{limited[0]} POINTS</CardTitle>
+                    </div>
+                  </div>
+                </div>
 
-            </div>
-          ))
-        }
+              </Card>
+            )
+          })}
+
+
+        </div>
+
 
       </div>
 

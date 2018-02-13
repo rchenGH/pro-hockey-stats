@@ -28,7 +28,7 @@
 }
 
 .projection-link{
-  color: rgba(255,255,255,1);
+  color: rgba(255,200,120,1);
   text-decoration: underline;
 }
 
@@ -73,7 +73,7 @@ Table{
 }
 
 table .goalsper82, table .assistsper82, table .pointsper82{
-  color: rgba(220,220,220,1);
+  color: rgba(255,200,120,1);
 }
 
  .table .next-season, .table .projected-goals, .table .projected-assists, .table .projected-points, .table .projected-shots, .table .projected-shot-percentage{
