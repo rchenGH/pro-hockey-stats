@@ -2,7 +2,7 @@ class Api::V1::PlayersController < Api::ApplicationController
   before_action :authenticate_api_user
 
   def index
-    @players = Player.order(created_at: :desc).limit(50)
+    @players = Player.all
     render json: @players
   end
 
