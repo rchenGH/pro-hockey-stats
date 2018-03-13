@@ -10,9 +10,6 @@
     "react-dom": "^16.2.0",
     "reactstrap": "^5.0.0-beta",
   },
-  "engines":{
-    "node":"8.5.0"
-  },
   "devDependencies": {
     "webpack-dev-server": "^2.11.1"
   }
